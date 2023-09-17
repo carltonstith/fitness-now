@@ -2,9 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.3.
 
-## Development server
+The mock API is protected using jsonwebtoken.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Back-End Development server
+
+To run the back-end for our application, you will need to open a terminal window and run `json-server --watch db.json`. Open a new tab or use [Postman](https://www.postman.com/) and issue a GET request at `http://localhost:3000`. This will serve the data.
+
+## Front-End Development server
+
+To run the front-end of our application, you will need to run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
