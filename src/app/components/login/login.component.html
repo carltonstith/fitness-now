@@ -22,17 +22,15 @@
     <h1>Login</h1>
   </mat-card-title>
   <mat-card-content>
-    <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogIn(loginForm)">
       <p>
         <mat-form-field>
-          <!-- <mat-label>Username</mat-label> -->
-          <input matInput type="text" formControlName="email" placeholder="Username">
+          <input matInput type="text" formControlName="username" placeholder="Username">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <!-- <mat-label>Password</mat-label> -->
           <input matInput type="password" formControlName="password" placeholder="Password">
         </mat-form-field>
       </p>
@@ -43,7 +41,6 @@
 
       <p class="forgot-password">Forgot Password</p>
 
-      <!-- <p class="no-account">Don't have an account? <span>Signup</span></p> -->
       <a routerLink="/registration" mat-raised="button" color="accent">New User?</a>
     </form>
   </mat-card-content>

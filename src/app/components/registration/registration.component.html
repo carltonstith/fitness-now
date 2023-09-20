@@ -1,15 +1,43 @@
-<div>
-  <h1>Welcome</h1>
-  <h3>Create an Account</h3>
-  <form [formGroup]="registrationForm" (ngSubmit)="registerUser()">
-    <div>
-      <label for="email">Email</label>
-      <input type="email" formControlName="email" required>
-      <label for="password">Password</label>
-      <input type="password" formControlName="password">
-    </div>
-    <button>Submit</button>
-    <span>Already have an account?</span>
-    <a routerLink="/login">SignIn</a>
-  </form>
-</div>
+<mat-card>
+  <mat-card-title>
+    <h1>Create an Account</h1>
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="registrationForm" (ngSubmit)="registerUser(registrationForm)">
+      <p>
+        <mat-form-field>
+          <input matInput type="text" formControlName="firstName" placeholder="firstName">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="text" formControlName="lastName" placeholder="Last Name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="text" formControlName="userName" placeholder="userName">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <input matInput type="email" formControlName="email" placeholder="email">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input matInput type="password" formControlName="password" placeholder="Password">
+        </mat-form-field>
+      </p>
+
+      <div class="button">
+        <button mat-button>Register</button>
+      </div>
+
+      <span>Already have an account?</span>
+      <a routerLink="/login">Log In</a>
+      <!-- <a routerLink="/registration" mat-raised="button" color="accent">New User?</a> -->
+    </form>
+  </mat-card-content>
+</mat-card>
