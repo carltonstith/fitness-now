@@ -14,6 +14,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
 
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
@@ -43,6 +44,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MatTableModule,
     MatFormFieldModule,
     MatGridListModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

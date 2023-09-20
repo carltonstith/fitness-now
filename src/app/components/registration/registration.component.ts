@@ -11,6 +11,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class RegistrationComponent implements OnInit {
   public registrationForm!: FormGroup;
+  hide = true;
 
   constructor(
     private router: Router,
@@ -44,9 +45,6 @@ export class RegistrationComponent implements OnInit {
           }
         })
     }
-    // this.http.post<any>('http://localhost:3000/users', this.registrationForm.value).subscribe((response) => {
-    //   this.router.navigate(['/login']);
-    // });
   }
 
 }

@@ -6,28 +6,35 @@
     <form [formGroup]="registrationForm" (ngSubmit)="registerUser(registrationForm)">
       <p>
         <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
           <input matInput type="text" formControlName="firstName" placeholder="firstName">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
           <input matInput type="text" formControlName="lastName" placeholder="Last Name">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
           <input matInput type="text" formControlName="userName" placeholder="userName">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
           <input matInput type="email" formControlName="email" placeholder="email">
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input matInput type="password" formControlName="password" placeholder="Password">
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput type="password" [type]="hide ? 'password' : 'text' " formControlName="password" placeholder="Password">
+          <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <!-- <mat-hint *ngIf="!password.value">Enter your password</mat-hint> -->
         </mat-form-field>
       </p>
 
