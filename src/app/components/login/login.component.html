@@ -1,28 +1,9 @@
-<!-- <div class="login-container">
-  <div class="login-content">
-    <p class="title">Login</p>
-    <p class="subtitle">Welcome!</p>
-    <mat-form-field appearance="outline">
-      <mat-label>Username</mat-label>
-      <input matInput type="text">
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Password</mat-label>
-      <input matInput type="password">
-    </mat-form-field>
-
-    <p class="forgot-password">Forgot Password</p>
-
-    <p class="no-account">Don't have an account? <span>Signup</span></p>
-  </div>
-</div> -->
 <mat-card>
   <mat-card-title>
     <h1>Login</h1>
   </mat-card-title>
   <mat-card-content>
-    <form [formGroup]="loginForm" (ngSubmit)="onLogIn(loginForm)">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogIn()">
       <p>
         <mat-form-field>
           <mat-icon matPrefix>person</mat-icon>
@@ -38,6 +19,9 @@
         </mat-form-field>
       </p>
 
+      <p><b>Username</b>: mikejones</p>
+      <p><b>Password</b>: SuperAdmin$100</p>
+
       <div class="button">
         <button mat-button>Login</button>
       </div>
@@ -48,18 +32,3 @@
     </form>
   </mat-card-content>
 </mat-card>
-<!-- <div>
-  <h1>Hi, Welcome Back!</h1>
-  <h3>Login</h3>
-  <form [formGroup]="loginForm" (ngSubmit)="submit(loginForm)">
-    <div>
-      <label for="email">Email</label>
-      <input type="text" formControlName="email" required>
-      <label for="password">Password</label>
-      <input type="password" formControlName="password">
-    </div>
-    <button>Submit</button>
-    <span>Don't have an account?</span>
-    <a routerLink="/registration">SignUp</a>
-  </form>
-</div> -->

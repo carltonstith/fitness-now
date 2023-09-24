@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private authService: AuthenticationService) { }
+    private authService: AuthenticationService,
+    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -26,20 +28,27 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onLogIn(loginForm: FormGroup) {
+  onLogIn() {
     if(this.loginForm.valid) {
       console.log(this.loginForm.value);
-      //Send the obj to the database
       this.authService.login(this.loginForm.value)
         .subscribe({
-          next: (res) => {
-            // alert(res.message)
-            console.log(res);
+          next: (res:any) => {
+            console.log(res.token);
+            console.log(res.message);
+            // console.log((res as any).token);
             this.loginForm.reset();
-            this.router.navigate(['home']);
+            this.authService.storeToken(res.token);
+            this.snackBar.open(res.message, 'Close', {
+              duration: 5000,
+            });
+            this.router.navigate(['dashboard']);
           },
           error: (err) => {
-            alert(err?.error.message)
+            // alert(err?.error.message)
+            this.snackBar.open(err?.error.message, 'Close', {
+              duration: 5000,
+            });
           }
         })
     }

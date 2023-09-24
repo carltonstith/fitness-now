@@ -1,8 +1,19 @@
-<ng-container *ngIf="isAuthenticated">
+<ng-container>
   <mat-toolbar color="primary">
-    <span>Fitness Now!</span>
-     <a mat-button>Home</a>
-     <a mat-button>About</a>
-     <a mat-button>Contact</a>
+    <mat-toolbar-row>
+      <div>
+        <span>Fitness Now!</span>
+        <!-- <a mat-button routerLink="dashboard">Home</a> -->
+        <a mat-button routerLink="dashboard">Home</a>
+        <a mat-button>About</a>
+        <a mat-button>Contact</a>
+      </div>
+      <span class="flexExpand"></span>
+     <ng-container>
+      <div>
+        <a mat-button (click)="logout()">Logout</a>
+      </div>
+     </ng-container>
+    </mat-toolbar-row>
   </mat-toolbar>
 </ng-container>
