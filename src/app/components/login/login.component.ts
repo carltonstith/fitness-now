@@ -4,6 +4,9 @@ import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserStoreService } from 'src/app/services/user-store.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +22,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private authService: AuthenticationService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar,
+    private userStore: UserStoreService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -34,11 +39,16 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.loginForm.value)
         .subscribe({
           next: (res:any) => {
-            console.log(res.token);
+            console.log(res);
+            console.log(res.accessToken);
             console.log(res.message);
             // console.log((res as any).token);
             this.loginForm.reset();
-            this.authService.storeToken(res.token);
+            this.authService.storeToken(res.accessToken);
+            this.authService.storeRefreshToken(res.refreshToken);
+            const tokenPayload = this.authService.decodedToken();
+            this.userStore.setFullNameInStore(tokenPayload.name);
+            this.userStore.setRolesInStore(tokenPayload.role);
             this.snackBar.open(res.message, 'Close', {
               duration: 5000,
             });
@@ -63,6 +73,11 @@ export class LoginComponent implements OnInit {
     //     this.router.navigate(['home']);
     //   }
     // });
+  }
+
+  openForgotPasswordModal() {
+    this.dialog.open(ForgotPasswordComponent);
+    console.log('Forgot password modal opened')
   }
 
 }

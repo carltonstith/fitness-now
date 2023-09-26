@@ -11,7 +11,7 @@ export const AuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const authService = inject(AuthenticationService);
   const snackBar = inject(MatSnackBar);
-  console.log(token);
+  // console.log(token);
 
   // functional auth guard, not working
   // return authService.isLoggedIn().pipe(

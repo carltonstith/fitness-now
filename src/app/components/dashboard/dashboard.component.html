@@ -1,4 +1,8 @@
+<app-navbar></app-navbar>
 <div>
+  <p>Hello, {{ fullName }}</p>
+</div>
+<div *ngIf="role === 'SuperAdmin' ">
   <!-- <app-card [categories]="categories"></app-card> -->
   <ul *ngFor="let user of users">
     {{user.username}}

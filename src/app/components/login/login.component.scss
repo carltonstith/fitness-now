@@ -52,7 +52,14 @@ mat-card-content {
   background-color: red;
 }
 
-.button {
+.login-button {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.forgot-password {
   display: flex;
   justify-content: flex-end;
+  margin: 15px 0;
 }

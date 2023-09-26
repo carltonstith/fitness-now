@@ -19,14 +19,16 @@
         </mat-form-field>
       </p>
 
-      <p><b>Username</b>: mikejones</p>
-      <p><b>Password</b>: SuperAdmin$100</p>
+      <p><b>Username</b>: superAdmin</p>
+      <p><b>Password</b>: P@ssword123</p>
 
-      <div class="button">
-        <button mat-button>Login</button>
+      <div class="forgot-password">
+        <button mat-button (click)="openForgotPasswordModal()">Forgot Password</button>
       </div>
 
-      <p class="forgot-password">Forgot Password</p>
+      <div class="login">
+        <button mat-raised-button class="login-button">Login</button>
+      </div>
 
       <a routerLink="/registration" mat-raised="button" color="accent">New User?</a>
     </form>
