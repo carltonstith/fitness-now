@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,6 +24,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { TableComponent } from './components/table/table.component';
+import { ResetComponent } from './components/reset/reset.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +35,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     DashboardComponent,
     CardComponent,
     NavbarComponent,
+    ForgotPasswordComponent,
+    TableComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     MatSnackBarModule,
     MatDialogModule,
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

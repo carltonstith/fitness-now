@@ -48,7 +48,9 @@ export class DashboardComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.api.getAllUsers().subscribe((res) => (this.users = res));
+    this.api.getAllUsers().subscribe((res) => (
+      this.users = res
+    ));
 
     // this.service.getCategories().subscribe((data:any) => {
     //   console.log(data);
@@ -56,16 +58,23 @@ export class DashboardComponent implements OnInit {
     // })
     console.log('get categories from api');
 
-    this.userStore.getFullNameFromStore().subscribe(val => {
+    this.userStore.getFullNameFromStore().subscribe((val) => {
       let fullNameFromToken = this.authService.getFullNameFromToken();
 
       this.fullName = val || fullNameFromToken;
     });
 
-    this.userStore.getRolesFromStore().subscribe(val => {
+    this.userStore.getRolesFromStore().subscribe((val) => {
       let rolesFromToken = this.authService.getRolesFromToken();
 
       this.role = val || rolesFromToken;
-    })
+    });
   }
+}
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
 }

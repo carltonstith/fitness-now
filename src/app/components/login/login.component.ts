@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { ResetPasswordService } from 'src/app/services/reset-password.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,9 @@ export class LoginComponent implements OnInit {
   public loginForm!: FormGroup;
   hide = true;
 
+  public loginUsername ='superAdmin';
+  public loginPassword = 'P@ssword123';
+
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -24,12 +28,13 @@ export class LoginComponent implements OnInit {
     private authService: AuthenticationService,
     private snackBar: MatSnackBar,
     private userStore: UserStoreService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private resetService: ResetPasswordService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: [this.loginUsername, Validators.required],
+      password: [this.loginPassword, Validators.required],
     });
   }
 
@@ -76,8 +81,17 @@ export class LoginComponent implements OnInit {
   }
 
   openForgotPasswordModal() {
-    this.dialog.open(ForgotPasswordComponent);
-    console.log('Forgot password modal opened')
+    let dialogRef = this.dialog.open(ForgotPasswordComponent, {
+      width: '500px',
+      panelClass: 'icon-outside',
+      disableClose: true,
+      data: "Hello"
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result.email}`);
+    });
   }
+
+
 
 }

@@ -1,0 +1,107 @@
+<mat-card>
+  <mat-card-title>
+    <h1>Reset Password</h1>
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword(resetPasswordForm)">
+      <!-- <p>
+        <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput type="text" formControlName="firstName" placeholder="firstName">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput type="text" formControlName="lastName" placeholder="Last Name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput type="text" formControlName="userName" placeholder="userName">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput type="email" formControlName="email" placeholder="email">
+        </mat-form-field>
+      </p> -->
+
+      <p>
+        <mat-form-field>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput type="password" [type]="hide ? 'password' : 'text' " formControlName="password" placeholder="New Password">
+          <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <mat-error *ngIf="!emailToReset">*New Password is Required*</mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-icon matPrefix>lock</mat-icon>
+          <input matInput type="password" [type]="hide ? 'password' : 'text' " formControlName="confirmPassword" placeholder="Confirm New Password">
+          <mat-icon matSuffix (click)="hide = !hide">{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <mat-error *ngIf="!emailToReset">*Confirm Password is Required*</mat-error>
+        </mat-form-field>
+      </p>
+
+      <div class="button">
+        <button mat-button>Reset Password</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<!-- <div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+        <div class="panel border bg-white">
+          <div class="panel-heading">
+            <h3 class="pt-3 font-weight-bold">Reset Password</h3>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="resetPasswordForm">
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                  <div *ngIf="resetPasswordForm.get('password').invalid && (resetPasswordForm.get('password').dirty || resetPasswordForm.get('password').touched)" class="alert alert-danger">
+                    <div *ngIf="resetPasswordForm.get('password').errors.required">
+                      Password is required
+                    </div>
+                    <div *ngIf="resetPasswordForm.get('password').errors.minlength">
+                      Password must be at least 6 characters
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group pt-3">
+                <div class="input-field">
+                  <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+                  <div *ngIf="resetPasswordForm.get('confirmPassword').invalid && (resetPasswordForm.get('confirmPassword').dirty || resetPasswordForm.get('confirmPassword').touched)" class="alert alert-danger">
+                    <div *ngIf="resetPasswordForm.get('confirmPassword').errors.required">
+                      Confirm Password is required
+                    </div>
+                    <div *ngIf="resetPasswordForm.get('confirmPassword').errors.minlength">
+                      Confirm Password must be at least 6 characters
+                    </div>
+                    <div *ngIf="resetPasswordForm.get('confirmPassword').errors.mustMatch">
+                      Confirm Password must match
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <small>*Confirm Password is Required*</small>
+              <small>*Password Don't Match*</small>
+
+              <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Reset Password</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

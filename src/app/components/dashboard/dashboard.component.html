@@ -1,10 +1,13 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 <div>
   <p>Hello, {{ fullName }}</p>
 </div>
-<div *ngIf="role === 'SuperAdmin' ">
-  <!-- <app-card [categories]="categories"></app-card> -->
-  <ul *ngFor="let user of users">
+<div *ngIf="role === 'SuperAdmin'; else user">
+  <!-- <ul *ngFor="let user of users">
     {{user.username}}
-  </ul>
+  </ul> -->
+  <app-table></app-table>
 </div>
+<ng-template #user>
+  <app-card [categories]="categories"></app-card>
+</ng-template>
