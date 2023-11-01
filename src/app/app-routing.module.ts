@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { ChallengesComponent } from './pages/challenges/challenges.component';
 // import { LoginComponent } from './components/login/login.component';
 // import { RegistrationComponent } from './components/registration/registration.component';
 // import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -22,7 +23,13 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () =>
-          import('./components/pages/pages.module').then(m => m.PagesModule)
+          import('./pages/pages.module').then(m => m.PagesModule)
+      },
+      {
+        path: 'challenge',
+        component: ChallengesComponent
+        // loadChildren: () =>
+        //   import('./pages/pages.module').then(m => m.PagesModule)
       }
     ]
   },
@@ -32,7 +39,7 @@ const routes: Routes = [
     children: [
       {
         path: 'authentication',
-        loadChildren: () => import('./components/pages/authentication/authentication.module').then(m => m.AuthenticationModule)
+        loadChildren: () => import('./pages/authentication/authentication.module').then(m => m.AuthenticationModule)
       }
     ]
   }

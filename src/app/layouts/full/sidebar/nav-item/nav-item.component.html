@@ -1,49 +1,30 @@
 <!-- <a mat-list-item>item</a> -->
-<div mat-subheader  class="nav-caption">
-  Fitness Now!
-</div>
-<a
-  mat-list-item
-  [routerLink]="['/dashboard']"
-
-  class="menu-list-item"
-
->
-<mat-icon aria-hidden="false" aria-label="home" fontIcon="home" matListItemIcon></mat-icon>
-  <!-- <i-tabler
-    class="routeIcon"
-    name="{{ item.iconName }}"
+<div mat-subheader class="nav-caption">Fitness Now!</div>
+<a mat-list-item (click)="goToDashboard()" class="menu-list-item">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="home"
+    fontIcon="home"
     matListItemIcon
-  ></i-tabler> -->
+  ></mat-icon>
   <span class="hide-menu">Dashboard</span>
 </a>
-<a
-  mat-list-item
-  [routerLink]="['/dashboard']"
-
-  class="menu-list-item"
-
->
-  <!-- <i-tabler
-    class="routeIcon"
-    name="{{ item.iconName }}"
+<a mat-list-item (click)="goToSettings()" class="menu-list-item">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="settings"
+    fontIcon="settings"
     matListItemIcon
-  ></i-tabler> -->
-  <mat-icon aria-hidden="false" aria-label="settings" fontIcon="settings" matListItemIcon></mat-icon>
+  ></mat-icon>
   <span class="hide-menu">Settings</span>
 </a>
 <mat-divider></mat-divider>
-<a
-  mat-list-item
-
-  class="menu-list-item"
-  (click)="logout()"
->
-  <!-- <i-tabler
-    class="routeIcon"
-    name="{{ item.iconName }}"
+<a mat-list-item class="menu-list-item" (click)="logout()">
+  <mat-icon
+    aria-hidden="false"
+    aria-label="logout"
+    fontIcon="logout"
     matListItemIcon
-  ></i-tabler> -->
-  <mat-icon aria-hidden="false" aria-label="logout" fontIcon="logout" matListItemIcon></mat-icon>
+  ></mat-icon>
   <span class="hide-menu">Logout</span>
 </a>

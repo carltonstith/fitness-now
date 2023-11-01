@@ -18,23 +18,6 @@ import { BlankComponent } from './layouts/blank/blank.component';
 import { HeaderComponent } from './layouts/full/header/header.component';
 import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
 
-// import { MatToolbarModule } from '@angular/material/toolbar';
-// import { MatInputModule } from '@angular/material/input';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatCardModule } from '@angular/material/card';
-// import { MatTableModule } from '@angular/material/table';
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatGridListModule } from '@angular/material/grid-list';
-// import { MatIconModule } from '@angular/material/icon';
-// import { MatSnackBarModule } from '@angular/material/snack-bar';
-// import { MatDialogModule } from '@angular/material/dialog';
-// import { MatCheckboxModule } from '@angular/material/checkbox';
-
-// import { RegistrationComponent } from './components/pages/registration/registration.component';
-// import { LoginComponent } from './components/pages/login/login.component';
-
-//import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
-//import { CardComponent } from './components/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -51,10 +34,6 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     HeaderComponent,
     SidebarComponent,
     AppNavItemComponent,
-    // RegistrationComponent,
-    // LoginComponent,
-    //DashboardComponent,
-    //CardComponent,
     NavbarComponent,
     ForgotPasswordComponent,
     TableComponent,
@@ -68,19 +47,9 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    // MatToolbarModule,
-    // MatInputModule,
-    // MatButtonModule,
-    // MatCardModule,
-    // MatTableModule,
-    // MatFormFieldModule,
-    // MatGridListModule,
-    // MatIconModule,
-    // MatSnackBarModule,
-    // MatDialogModule,
-    // MatCheckboxModule,
   ],
-  providers: [SideNavService,
+  providers: [
+    SideNavService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

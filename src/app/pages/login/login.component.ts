@@ -6,7 +6,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserStoreService } from 'src/app/services/user-store.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ForgotPasswordComponent } from '../../forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from '../../components/forgot-password/forgot-password.component';
 import { ResetPasswordService } from 'src/app/services/reset-password.service';
 
 @Component({
