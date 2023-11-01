@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -25,6 +25,7 @@ import { TableComponent } from './components/table/table.component';
 import { ResetComponent } from './components/reset/reset.component';
 import { SideNavService } from './services/sidenav.service';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
+
 
 @NgModule({
   declarations: [
@@ -53,5 +54,6 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
