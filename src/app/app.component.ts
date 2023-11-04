@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { register } from 'swiper/element/bundle';
+//import { register } from 'swiper/element/bundle';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,6 @@ import { register } from 'swiper/element/bundle';
 })
 export class AppComponent implements OnInit {
   public ngOnInit(): void {
-    register();
+    //register();
   }
 }

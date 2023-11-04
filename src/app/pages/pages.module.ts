@@ -12,9 +12,9 @@ import { ChallengesComponent } from './challenges/challenges.component';
 import { ChallengeDetailsComponent } from '../components/challenge-details/challenge-details.component';
 
 // import function to register Swiper custom elements
-import { register } from 'swiper/element/bundle';
+//import { register } from 'swiper/element/bundle';
 // register Swiper custom elements
-register();
+// register();
 
 @NgModule({
   declarations: [DashboardComponent, CardComponent, ChallengesComponent, ChallengeDetailsComponent],
